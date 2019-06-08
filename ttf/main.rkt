@@ -30,24 +30,29 @@
 (define-sdl2-ttf TTF_OpenFontRW (_fun _SDL_RWops* _int _int -> _TTF_Font*/null))
 (define-sdl2-ttf TTF_OpenFontIndexRW (_fun _SDL_RWops* _int _int _long -> _TTF_Font*/null))
 
-(define TTF_STYLE_NORMAL        #x00)
-(define TTF_STYLE_BOLD          #x01)
-(define TTF_STYLE_ITALIC        #x02)
-(define TTF_STYLE_UNDERLINE     #x04)
-(define TTF_STYLE_STRIKETHROUGH #x08)
+(define _TTF_Style
+    (_bitmask
+     '(TTF_STYLE_NORMAL        = #x00
+       TTF_STYLE_BOLD          = #x01
+       TTF_STYLE_ITALIC        = #x02
+       TTF_STYLE_UNDERLINE     = #x04
+       TTF_STYLE_STRIKETHROUGH = #x08)
+     _int))
 
-(define-sdl2-ttf TTF_GetFontStyle (_fun _TTF_Font* -> _int))
-(define-sdl2-ttf TTF_SetFontStyle (_fun _TTF_Font* _int -> _void))
+(define-sdl2-ttf TTF_GetFontStyle (_fun _TTF_Font* -> _TTF_Style))
+(define-sdl2-ttf TTF_SetFontStyle (_fun _TTF_Font* _TTF_Style -> _void))
 (define-sdl2-ttf TTF_GetFontOutline (_fun _TTF_Font* -> _int))
 (define-sdl2-ttf TTF_SetFontOutline (_fun _TTF_Font* _int -> _void))
 
-(define TTF_HINTING_NORMAL    0)
-(define TTF_HINTING_LIGHT     1)
-(define TTF_HINTING_MONO      2)
-(define TTF_HINTING_NONE      3)
+(define _TTF_Hinting
+    (_enum
+     '(TTF_HINTING_NORMAL   = 0
+       TTF_HINTING_LIGHT    = 1
+       TTF_HINTING_MONO     = 2
+       TTF_HINTING_NONE     = 3)))
 
-(define-sdl2-ttf TTF_GetFontHinting (_fun _TTF_Font* -> _int))
-(define-sdl2-ttf TTF_SetFontHinting (_fun _TTF_Font* _int -> _void))
+(define-sdl2-ttf TTF_GetFontHinting (_fun _TTF_Font* -> _TTF_Hinting))
+(define-sdl2-ttf TTF_SetFontHinting (_fun _TTF_Font* _TTF_Hinting -> _void))
 
 (define-sdl2-ttf TTF_FontHeight (_fun _TTF_Font* -> _int))
 
