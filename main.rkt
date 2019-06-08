@@ -1328,12 +1328,12 @@
        KMOD_NUM = #x1000
        KMOD_CAPS = #x2000
        KMOD_MODE = #x4000
-       KMOD_RESERVED = #x8000)))
+       KMOD_RESERVED = #x8000
 
-(define KMOD_CTRL   '(KMOD_LCTRL KMOD_RCTRL))
-(define KMOD_SHIFT  '(KMOD_LSHIFT KMOD_RSHIFT))
-(define KMOD_ALT    '(KMOD_LALT KMOD_RALT))
-(define KMOD_GUI    '(KMOD_LGUI KMOD_RGUI))
+       KMOD_CTRL = #x00c0
+       KMOD_SHIFT = #x0003
+       KMOD_ALT = #x0300
+       KMOD_GUI = #x0c00)))
 
 
 ;; SDL_rect.h
