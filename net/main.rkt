@@ -10,7 +10,9 @@
  sdl2/private/lib-path)
 
 (provide
- (all-defined-out))
+ (except-out
+  (all-defined-out)
+  define-sdl2-net))
 
 
 (define sdl2-net-lib (ffi-lib (lib-path "net") '("0" #f)))

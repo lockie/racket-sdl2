@@ -7,7 +7,9 @@
  sdl2/private/lib-path)
 
 (provide
- (all-defined-out))
+ (except-out
+  (all-defined-out)
+  define-sdl2-ttf))
 
 
 (define-ffi-definer define-sdl2-ttf (ffi-lib (lib-path "ttf") '("0" #f)))

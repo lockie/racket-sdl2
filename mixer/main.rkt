@@ -7,7 +7,9 @@
  sdl2/private/lib-path)
 
 (provide
- (all-defined-out))
+ (except-out
+  (all-defined-out)
+  define-sdl2-mixer))
 
 
 (define-ffi-definer define-sdl2-mixer (ffi-lib (lib-path "mixer") '("0" #f)))

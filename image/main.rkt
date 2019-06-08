@@ -7,7 +7,9 @@
  sdl2/private/lib-path)
 
 (provide
- (all-defined-out))
+ (except-out
+  (all-defined-out)
+  define-sdl2-image))
 
 
 (define-ffi-definer define-sdl2-image (ffi-lib (lib-path "image") '("0" #f)))
