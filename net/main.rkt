@@ -62,7 +62,7 @@
     ([channel _int]
      [data _uint8*]
      [len _int]
-     [maxlent _int]
+     [maxlen _int]
      [status _int]
      [address _IPaddress]))
 (define _UDPpacket* _UDPpacket-pointer)
