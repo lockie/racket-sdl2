@@ -8,7 +8,8 @@
  ffi/unsafe/define
  (submod racket/performance-hint begin-encourage-inline)
  (rename-in racket/contract
-            [-> contract/->]))
+            [-> contract/->])
+ sdl2/private/lib-path)
 
 (provide
  (except-out
@@ -17,22 +18,7 @@
   define-sdl2
   define-sdl2-vararg))
 
-
-(define (sdl2-lib-path [suffix #f])
-    (string-append
-     (case (system-type 'os)
-         [(unix)     "libSDL2"]
-         [(windows)  "SDL2"]
-         [(macosx)   "libSDL2"]
-         [else (error "Platform not supported")])
-     (if suffix
-         (string-append "_" suffix)
-         "")
-     (if (eq? (system-type 'os) 'windows)
-         ""
-         "-2.0")))
-
-(define sdl2-lib (ffi-lib (sdl2-lib-path) '("0" #f)))
+(define sdl2-lib (ffi-lib (lib-path) '("0" #f)))
 (define-ffi-definer define-sdl2 sdl2-lib)
 
 (define-cpointer-type _uint8*)

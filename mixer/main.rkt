@@ -3,15 +3,16 @@
 (require
  ffi/unsafe
  ffi/unsafe/define
- sdl2)
+ sdl2
+ sdl2/private/lib-path)
 
 (provide
  (all-defined-out))
 
 
-(define-ffi-definer define-sdl2-mixer (ffi-lib (sdl2-lib-path "mixer") '("0" #f)))
+(define-ffi-definer define-sdl2-mixer (ffi-lib (lib-path "mixer") '("0" #f)))
 
-(define-sdl2-mixer Mix_Linked_Version (_fun -> _SDL_version-pointer))
+(define-sdl2-mixer Mix_Linked_Version (_fun -> _SDL_version*))
 
 (define _MIX_InitFlags
     (_bitmask

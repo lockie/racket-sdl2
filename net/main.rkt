@@ -6,13 +6,14 @@
  (submod racket/performance-hint begin-encourage-inline)
  (rename-in racket/contract
             [-> contract/->])
- sdl2)
+ sdl2
+ sdl2/private/lib-path)
 
 (provide
  (all-defined-out))
 
 
-(define sdl2-net-lib (ffi-lib (sdl2-lib-path "net") '("0" #f)))
+(define sdl2-net-lib (ffi-lib (lib-path "net") '("0" #f)))
 (define-ffi-definer define-sdl2-net sdl2-net-lib)
 
 (define-sdl2-net SDLNet_Linked_Version (_fun -> _SDL_version*))

@@ -3,13 +3,14 @@
 (require
  ffi/unsafe
  ffi/unsafe/define
- sdl2)
+ sdl2
+ sdl2/private/lib-path)
 
 (provide
  (all-defined-out))
 
 
-(define-ffi-definer define-sdl2-ttf (ffi-lib (sdl2-lib-path "ttf") '("0" #f)))
+(define-ffi-definer define-sdl2-ttf (ffi-lib (lib-path "ttf") '("0" #f)))
 
 (define-sdl2-ttf TTF_Linked_Version (_fun -> _SDL_version*))
 
