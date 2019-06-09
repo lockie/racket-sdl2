@@ -78,8 +78,8 @@ More examples are available in [`examples/`](https://github.com/lockie/racket-sd
 
 ## Related projects
 
-[cosmez/racket-sdl](https://github.com/cosmez/racket-sdl) - only main SDL library bindings. Contains known bugs and seems to be abandoned.
-[chicken-sdl2](http://wiki.call-cc.org/eggref/5/sdl2) - SDL2 bindings for Chicken Scheme, mostly compatible with this package's `pretty` interface.
+* [cosmez/racket-sdl](https://github.com/cosmez/racket-sdl) - only main SDL library bindings. Contains known bugs and seems to be abandoned.
+* [chicken-sdl2](http://wiki.call-cc.org/eggref/5/sdl2) - SDL2 bindings for Chicken Scheme, mostly compatible with this package's `pretty` interface.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
