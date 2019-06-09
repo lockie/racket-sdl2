@@ -3626,15 +3626,17 @@
     (_enum
      '(SDL_MESSAGEBOX_ERROR        = #x00000010
        SDL_MESSAGEBOX_WARNING      = #x00000020
-       SDL_MESSAGEBOX_INFORMATION  = #x00000040)))
+       SDL_MESSAGEBOX_INFORMATION  = #x00000040)
+     _uint32))
 
 (define _SDL_MessageBoxButtonFlags
     (_enum
      '(SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT = #x00000001
-       SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT = #x00000002)))
+       SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT = #x00000002)
+     _uint32))
 
 (define-cstruct _SDL_MessageBoxButtonData
-    ([flags _uint32]
+    ([flags _SDL_MessageBoxButtonFlags]
      [buttonid _int]
      [text _string]))
 (define _SDL_MessageBoxButtonData* _SDL_MessageBoxButtonData-pointer)
@@ -3662,7 +3664,7 @@
 (define _SDL_MessageBoxColorScheme* _SDL_MessageBoxColorScheme-pointer)
 
 (define-cstruct _SDL_MessageBoxData
-    ([flags _uint32]
+    ([flags _SDL_MessageBoxFlags]
      [window _SDL_Window*]
      [title _string]
      [message _string]
@@ -3674,7 +3676,7 @@
 
 (define-sdl2 SDL_ShowMessageBox (_fun _SDL_MessageBoxData* _int* -> _int))
 
-(define-sdl2 SDL_ShowSimpleMessageBox (_fun _uint32 _string _string _SDL_Window*/null -> _int))
+(define-sdl2 SDL_ShowSimpleMessageBox (_fun _SDL_MessageBoxFlags _string _string _SDL_Window*/null -> _int))
 
 
 ;; SDL_mutex.h
