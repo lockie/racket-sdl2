@@ -25,7 +25,7 @@
        MIX_INIT_MID  = #x00000020
        MIX_INIT_OPUS = #x00000040)))
 
-(define-sdl2-mixer Mix_Init (_fun _MIX_InitFlags -> _int))
+(define-sdl2-mixer Mix_Init (_fun _MIX_InitFlags -> _MIX_InitFlags))
 
 (define-sdl2-mixer Mix_Quit (_fun -> _void))
 
