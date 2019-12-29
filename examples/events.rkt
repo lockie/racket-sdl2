@@ -49,13 +49,16 @@
                  [(SDLK_UP) (set! y (sub1 y))]
                  [(SDLK_DOWN) (set! y (add1 y))])]
             [(SDL_MOUSEBUTTONDOWN)
-             (case (SDL_MouseButtonEvent-button (union-ref event 8))
-                 [(SDL_BUTTON_LEFT)
-                  (SDL_ShowSimpleMessageBox 0 "Mouse" "Left button was pressed!" window)]
-                 [(SDL_BUTTON_RIGHT)
-                  (SDL_ShowSimpleMessageBox 0 "Mouse" "Right button was pressed!" window)]
-                 [else
-                  (SDL_ShowSimpleMessageBox 0 "Mouse" "Some other button was pressed!" window)])]
+             (define (show-msg msg)
+                (SDL_ShowSimpleMessageBox 'SDL_MESSAGEBOX_INFORMATION "Mouse" msg window))
+             (let ((x (SDL_MouseButtonEvent-button (union-ref event 8))))
+                (cond 
+                    ((= x SDL_BUTTON_LEFT)
+                     (show-msg "Left button was pressed!"))
+                    ((= x SDL_BUTTON_RIGHT)
+                     (show-msg "Right button was pressed!"))
+                    (else
+                     (show-msg "Some other button was pressed!"))))]
             [(SDL_MOUSEMOTION)
              (define motion (union-ref event 7))
              (SDL_SetWindowTitle
