@@ -2305,7 +2305,7 @@
 (define-sdl2 SDL_Vulkan_UnloadLibrary (_fun -> _void)
     #:make-fail make-not-available)
 
-(define-sdl2 SDL_Vulkan_GetInstanceExtensions (_fun _SDL_Window* _uint* (_ptr o _string) -> _SDL_bool)
+(define-sdl2 SDL_Vulkan_GetInstanceExtensions (_fun _SDL_Window* _uint* _pointer) -> _SDL_bool)
     #:make-fail make-not-available)
 
 (define-sdl2 SDL_Vulkan_CreateSurface (_fun _SDL_Window* _VkInstance _VkSurfaceKHR* -> _SDL_bool)
