@@ -2357,7 +2357,7 @@
 (define-sdl2 vulkan-unload-library (_fun -> _void)
     #:make-fail make-not-available)
 
-(define-sdl2 vulkan-get-instance-extensions (_fun _window* _uint* (_ptr o _string) -> _bool)
+(define-sdl2 vulkan-get-instance-extensions (_fun _window* _uint* _pointer -> _bool)
     #:make-fail make-not-available)
 
 (define-sdl2 vulkan-create-surface (_fun _window* _vk-instance _vk-surface-khr* -> _bool)
