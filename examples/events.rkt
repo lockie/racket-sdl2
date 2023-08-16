@@ -34,10 +34,10 @@
     (for ([dummy (in-naturals)]
           #:break quit)
         (SDL_Delay 20)
-        (SDL_PollEvent event-ptr)
-        (define event (ptr-ref event-ptr _SDL_Event))
+        (unless (zero? (SDL_PollEvent event-ptr))
+          (define event (ptr-ref event-ptr _SDL_Event))
 
-        (case (union-ref event 0)
+          (case (union-ref event 0)
             [(SDL_QUIT)
              (set! quit #t)]
             [(SDL_KEYDOWN)
@@ -52,7 +52,7 @@
              (define (show-msg msg)
                 (SDL_ShowSimpleMessageBox 'SDL_MESSAGEBOX_INFORMATION "Mouse" msg window))
              (let ((x (SDL_MouseButtonEvent-button (union-ref event 8))))
-                (cond 
+                (cond
                     ((= x SDL_BUTTON_LEFT)
                      (show-msg "Left button was pressed!"))
                     ((= x SDL_BUTTON_RIGHT)
@@ -65,7 +65,7 @@
               window
               (format "X: ~a Y: ~a"
                       (SDL_MouseMotionEvent-x motion)
-                      (SDL_MouseMotionEvent-y motion)))])
+                      (SDL_MouseMotionEvent-y motion)))]))
 
         (SDL_RenderClear renderer)
         (SDL_RenderCopy renderer texture #f (make-SDL_Rect x y 64 64))
