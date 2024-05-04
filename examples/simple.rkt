@@ -19,7 +19,7 @@
         (eprintf "SDL_CreateRenderer Error: ~a\n" (SDL_GetError))
         (exit 1))
     (define bmp
-        (SDL_LoadBMP "grumpy-cat.bmp"))
+        (SDL_LoadBMP (path->complete-path "grumpy-cat.bmp")))
     (unless bmp
         (eprintf "SDL_LoadBMP Error: ~a\n" (SDL_GetError)))
     (define tex
