@@ -23,7 +23,7 @@
                                      640 480 '()))
     (define renderer (SDL_CreateRenderer window -1 '()))
 
-    (define image (SDL_LoadBMP "spaceship.bmp"))
+    (define image (SDL_LoadBMP (path->complete-path "spaceship.bmp")))
     (define texture (SDL_CreateTextureFromSurface renderer image))
     (SDL_FreeSurface image)
 
